@@ -16,7 +16,7 @@ def build_database(dbasefname, textfile, sregex):
 def gen_tweet(mc):
     while True:
         tweet = mc.generateString()
-        if len(tweet) < 129 and len(tweet) > 80:
+        if len(tweet) < 129 and len(tweet) > 40:
             return tweet + " #analytics"
 
 
