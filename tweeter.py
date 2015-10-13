@@ -38,6 +38,8 @@ def tweeter(tweetfile, times, cronmode=False):
 
     # get text line
     tweet_text = get_tweet(tweetfile)
+    if not tweet_text:
+        raise Exception("tweet file empty")
     # tweet text
     api = setup_api(key)
     status = api.update_status(status=tweet_text)
@@ -50,8 +52,7 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("tweetfile",
                         help="name of file with generated tweets",
-                        default="tweets.txt",
-                        type=str)
+                        default=None)
     parser.add_argument("-i", "--interval",
                         help="a list of hours to tweet, not yet implemented",
                         default=[0],
