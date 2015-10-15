@@ -17,17 +17,26 @@ def check_times(lst):
 
 
 def get_tweet(tweetfile):
-    with open(tweetfile, 'r') as f:
+    with open(tweetfile, "r") as f:
         first_line = f.readline().strip()
     return first_line
 
 
 def remove_tweet(tweetfile):
-    with open(tweetfile, 'r') as f:
+    with open(tweetfile, "r") as f:
         lines = f.readlines()
-    with open(tweetfile, 'w') as f:
+    with open(tweetfile, "w") as f:
         [f.write(line) for line in lines[1:]]
     return True
+
+
+def followback(api):
+    """auto follow back followers"""
+    followers = api.get_followers_ids()["ids"]
+    friends = api.get_friends_ids()["ids"]
+    for fol in followers:
+        if fol not in friends:
+            api.create_friendship(user_id=fol)
 
 
 def tweeter(tweetfile, times, cronmode=False):
@@ -46,6 +55,7 @@ def tweeter(tweetfile, times, cronmode=False):
     # if success, delete line
     if status:
         remove_tweet(tweetfile)
+    followback(api)
 
 
 def main():
@@ -56,7 +66,7 @@ def main():
     parser.add_argument("-i", "--interval",
                         help="a list of hours to tweet, not yet implemented",
                         default=[0],
-                        nargs='+')
+                        nargs="+")
     parser.add_argument("--cronmode",
                         help="runs script in chronmode (tweets and exits)",
                         default=False, action="store_true")
