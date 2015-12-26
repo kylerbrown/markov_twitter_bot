@@ -28,3 +28,8 @@ replacing the `XXXX`s with the appropriate strings.
   0 2  *   *   *     /usr/bin/python ~/markov_twitter/tweeter.py ~/markov_twitter/tweets.txt
 ```
   will generate a tweet once a day at 2:00 a.m..
+
+# Example
+            <a class="twitter-timeline"  href="https://twitter.com/bi_lovecraft" data-widget-id="680633565302804480">Tweets by @bi_lovecraft</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          
