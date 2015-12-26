@@ -1,12 +1,11 @@
 # markov twitter bot
 
-A simple twitterbot for posting markov chain generated tweets.
+A simple twitterbot for posting markov chain generated tweets. The first program ``markov.py`` generates tweets for review, and passing review, saves them to file. The second program ``tweeter.py`` posts the tweets to twitter, and is intended to be used with a job scheduler such as [Cron](https://en.wikipedia.org/wiki/Cron).
 
 ## requirements
 
 + Python 3 (2 might work)
-+ PyMarkovChain `git clone https://github.com/TehMillhouse/PyMarkovChain.git && cd PyMarkovChain && pip install -e .`
-+ Twython `pip install twython`
++ Twython and PyMarkovChain `pip install twython PyMarkovChain`
 
 ## usage
 
